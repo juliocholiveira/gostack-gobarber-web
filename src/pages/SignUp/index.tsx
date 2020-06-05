@@ -11,7 +11,6 @@ import Button from '../../components/Button';
 const SignUp: React.FC = () => {
   function handleSubmit(data: object): void {
     console.log(data);
-    console.log(data);
   }
 
   return (
