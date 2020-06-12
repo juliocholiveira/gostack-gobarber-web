@@ -8,7 +8,7 @@ export const Container = styled.div`
   position: absolute;
   right: 0;
   top: 0;
-  padding: 30px;
+  padding: 8px;
   overflow: hidden;
 `;
 
@@ -29,7 +29,7 @@ const toastTypeVariantions = {
 
 export const Toast = styled.div<ToastProps>`
   display: flex;
-  width: 360px;
+  width: 340px;
   position: relative;
   padding: 16px 30px 16px 16px;
   border-radius: 8px;
