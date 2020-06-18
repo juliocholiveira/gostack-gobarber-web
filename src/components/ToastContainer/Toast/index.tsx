@@ -12,9 +12,10 @@ import { Container } from './styles';
 
 interface ToastProps {
   message: ToastMessage;
+  style: object;
 }
 
-const Toast: React.FC<ToastProps> = ({ message }) => {
+const Toast: React.FC<ToastProps> = ({ message, style }) => {
   const icons = {
     info: <FiInfo size={18} />,
     error: <FiAlertCircle size={18} />,
@@ -34,7 +35,7 @@ const Toast: React.FC<ToastProps> = ({ message }) => {
   }, [message.id, remToast]);
 
   return (
-    <Container type={message.type}>
+    <Container type={message.type} style={style}>
       {icons[message.type || 'info']}
       <div>
         <span>{message.title}</span>
