@@ -3,6 +3,7 @@ import { FiLogIn, FiMail, FiLock } from 'react-icons/fi';
 import { Form } from '@unform/web';
 import { FormHandles } from '@unform/core';
 import * as Yup from 'yup';
+import { Link } from 'react-router-dom';
 
 import { Container, Content, Background } from './styles';
 import logo from '../../assets/logo.svg';
@@ -18,7 +19,7 @@ interface SignInFormData {
   password: string;
 }
 
-export const SignIn: React.FC = () => {
+const SignIn: React.FC = () => {
   const formRef = useRef<FormHandles>(null);
 
   const { user, signIn } = useAuth();
@@ -47,6 +48,7 @@ export const SignIn: React.FC = () => {
         if (err instanceof Yup.ValidationError) {
           const errors = getValidationErrors(err);
           formRef.current?.setErrors(errors);
+          return;
         }
         // Disparar um toast
         addToast({
@@ -77,12 +79,14 @@ export const SignIn: React.FC = () => {
           </Button>
           <a href="forgot">Esqueci minha senha</a>
         </Form>
-        <a href="login">
+        <Link to="/signup">
           <FiLogIn />
           Criar conta
-        </a>
+        </Link>
       </Content>
       <Background />
     </Container>
   );
 };
+
+export default SignIn;
